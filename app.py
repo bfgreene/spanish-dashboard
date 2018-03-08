@@ -1,12 +1,14 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from scraping import scrape
+import json
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-	return jsonify(Articles=scrape())
+	#return jsonify(scrape())
+	return render_template("index.html", articles=scrape())
 
 
 if __name__ == "__main_":

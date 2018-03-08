@@ -4,13 +4,17 @@
 
 	<title>Spanish Dashboard</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="scrape.js"></script>
 </head>
 <body>
-	<p>you're a towel</p>
-
 	<h2>Aticulos</h2>
-	
-	
+	<ul>
+
+	{% for article in articles %}
+		<li>
+			<a href="{{article["url"]}}" >{{article["title"]}}</a>
+		</li>
+	{% endfor %}
+
+	</ul>	
 </body>
 </html>

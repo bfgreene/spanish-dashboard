@@ -16,7 +16,7 @@ def scrape():
 		info["title"] = link.text
 
 		#url
-		info['url'] = "http://eltiempo.com" + link['href']
+		info["url"] = url_main + link['href']
 		
 		data.append(info)
 
