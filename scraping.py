@@ -22,5 +22,24 @@ def scrape():
 
 	return data
 
+def scrapeWord():
+	url_main = "http://spanishdict.com/wordoftheday"
+	
+	r = requests.get(url_main)
+	soup = BeautifulSoup(r.text, "html.parser")
 
-		
+	container = soup.find("div", class_="sd-wotd-container")
+	data = {}
+
+	data["word"] = container.find("a", class_="sd-wotd-headword-link").text
+	data["translation"] = container.find("div", class_="sd-wotd-translation").text
+	data["example"] = container.find("div", class_="sd-wotd-example-source").text
+
+
+	#data["word"] = "towel"
+	#data["translation"] = "toalla"
+	#data["example"] = "Tu eres una toalla"
+
+	return data
+
+

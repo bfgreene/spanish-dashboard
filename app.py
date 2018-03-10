@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-from scraping import scrape
+from scraping import scrape, scrapeWord
 import json
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 	#return jsonify(scrape())
-	return render_template("index.html", articles=scrape())
+	return render_template("index.html", articles=scrape(), word=scrapeWord())
 
 
 if __name__ == "__main_":
